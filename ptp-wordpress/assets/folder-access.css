@@ -1,0 +1,148 @@
+.ptp-folder-access {
+  max-width: 960px;
+  margin-top: 32px;
+}
+.ptp-folder-access > p,
+.ptp-folder-access .description {
+  max-width: 75ch;
+}
+.ptp-folder-access .ptp-root-fields {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.ptp-folder-access .ptp-root-fields > label {
+  font-weight: 600;
+}
+.ptp-folder-access .ptp-root-fields select {
+  justify-self: start;
+}
+.ptp-folder-access .ptp-root-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ptp-folder-access .ptp-root-input input {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+.ptp-folder-access .ptp-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  border: 0;
+}
+.ptp-folder-access .ptp-presets legend {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.ptp-folder-access .ptp-folder-tree {
+  max-height: 560px;
+  overflow: auto;
+  border: 1px solid #c3c4c7;
+  padding: 12px;
+  background: #fff;
+  list-style: none;
+}
+.ptp-folder-access .ptp-folder-tree ul {
+  margin-left: 20px;
+  padding: 0;
+  list-style: none;
+}
+.ptp-folder-access .ptp-folder-tree ul[hidden] {
+  display: none;
+}
+.ptp-folder-access .ptp-folder-tree li {
+  margin: 0;
+}
+.ptp-folder-access .ptp-folder-row {
+  display: grid;
+  grid-template-columns: 16px 20px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+.ptp-folder-access .ptp-folder-row:hover {
+  background: #f6f7f7;
+}
+.ptp-folder-access .ptp-folder-row input[type=checkbox] {
+  margin: 0;
+}
+.ptp-folder-access .ptp-expand {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid #8c8f94;
+  border-radius: 2px;
+  background: #fff;
+  color: #1d2327;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.ptp-folder-access .ptp-entry-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: #1d2327;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.ptp-folder-access .ptp-entry-name span {
+  overflow-wrap: anywhere;
+}
+.ptp-folder-access .ptp-entry-icon {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+}
+.ptp-folder-access .ptp-expand:focus-visible,
+.ptp-folder-access .ptp-entry-name:focus-visible {
+  outline: 2px solid #2271b1;
+  outline-offset: 2px;
+}
+.ptp-folder-access .ptp-expand:disabled,
+.ptp-folder-access .ptp-entry-name:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.ptp-folder-access .ptp-folder-state,
+.ptp-folder-access .ptp-tree-message {
+  color: #50575e;
+}
+.ptp-folder-access .ptp-folder-state {
+  font-size: 12px;
+  text-align: right;
+}
+.ptp-folder-access .ptp-tree-message {
+  padding: 8px;
+}
+.ptp-folder-access .ptp-folder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .ptp-folder-access .ptp-folder-tree {
+    padding: 8px;
+  }
+  .ptp-folder-access .ptp-folder-tree ul {
+    margin-left: 12px;
+  }
+  .ptp-folder-access .ptp-folder-state {
+    grid-column: 3/-1;
+    text-align: left;
+  }
+}

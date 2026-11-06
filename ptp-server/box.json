@@ -1,0 +1,14 @@
+{
+  "base-path": "src/",
+  "main": "ptp-server.php",
+  "output": "../dist/ptp-server.php",
+  "directories": ["."],
+  "files": [],
+  "shebang": false,
+  "replacements": {
+    "config.apiUsernameBase64": "",
+    "config.apiPasswordBase64": "",
+    "config.apiRootPathBase64": "",
+    "config.apiLogPathBase64": ""
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "name": "jalsoedesign/phile-transfer-protocol-server",
+  "description": "PTP authenticated PHP file endpoint for a local FTP bridge.",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://phile-transfer-protocol.jalsoedesign.net",
+  "keywords": [
+    "ptp",
+    "ftp",
+    "file-transfer",
+    "php"
+  ],
+  "require": {
+    "php": ">=8.2",
+    "ext-json": "*",
+    "ext-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "jalsoedesign\\PhileTransferProtocol\\": "ptp-server/src/"
+    }
+  },
+  "archive": {
+    "exclude": [
+      "ptp-client",
+      "ptp-client-ui",
+      "ptp-wordpress",
+      "docs",
+      "scripts",
+      "tests",
+      "test",
+      "bin",
+      "node_modules",
+      "vendor",
+      "tmp",
+      "dist",
+      "output",
+      "releases",
+      "playground",
+      ".git",
+      ".idea",
+      ".serena",
+      "AGENTS.md",
+      "CODE_REVIEW.md",
+      "REMEDIATION.md",
+      "*.env",
+      ".env",
+      ".env.*",
+      "*.yaml",
+      "*.yml",
+      "*.log",
+      "fixtures",
+      "package.json",
+      "package-lock.json",
+      "release.json",
+      "box.json",
+      "composer.lock",
+      "eslint.config.mjs",
+      ".php-cs-fixer.dist.php",
+      ".editorconfig",
+      "npm",
+      "ts-node-dev",
+      "compile_output.txt",
+      ".output.txt",
+      "playground-files",
+      "Dockerfile",
+      ".dockerignore"
+    ]
+  }
+}

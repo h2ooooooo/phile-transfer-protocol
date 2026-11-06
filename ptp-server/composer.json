@@ -1,0 +1,56 @@
+{
+  "name": "jalsoedesign/phile-transfer-protocol-server",
+  "description": "Authenticated PHP file API for the PTP bridge.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andreas Jalsøe",
+      "email": "andreas@jalsoedesign.net"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "jalsoedesign\\PhileTransferProtocol\\": "src/"
+    }
+  },
+  "scripts": {
+    "lint": "@php vendor/bin/php-cs-fixer fix --config=../.php-cs-fixer.dist.php --dry-run --diff",
+    "lint:fix": "@php vendor/bin/php-cs-fixer fix --config=../.php-cs-fixer.dist.php",
+    "dev": "@composer start-server:src",
+    "compile": "@php bin/cross-env.php @php bin/compile.php",
+    "generate-playground-files": "@php bin/cross-env.php @php bin/generate-playground-files.php",
+    "start-server:compile": [
+      "Composer\\Config::disableProcessTimeout",
+      "@composer compile -- --root-path=\"../playground\" --username=\"test\" --password=\"test\"",
+      "@php bin/cross-env.php @php -S 127.0.0.1:8000 -t dist"
+    ],
+    "start-server:src": [
+      "Composer\\Config::disableProcessTimeout",
+      "@php bin/cross-env.php PTP_ROOT_PATH=playground PTP_USERNAME=test PTP_PASSWORD=test @php -S 127.0.0.1:8000 -t src"
+    ],
+    "test": [
+      "node ../scripts/test.cjs --server"
+    ],
+    "phar": [
+      "@composer compile"
+    ]
+  },
+  "require": {
+    "php": ">=8.2",
+    "ext-json": "*",
+    "ext-openssl": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.5.57",
+    "guzzlehttp/guzzle": "^8.3.1",
+    "friendsofphp/php-cs-fixer": "^3.95.29"
+  },
+  "homepage": "https://phile-transfer-protocol.jalsoedesign.net",
+  "config": {
+    "platform-check": true,
+    "platform": {
+      "php": "8.2.0"
+    }
+  }
+}

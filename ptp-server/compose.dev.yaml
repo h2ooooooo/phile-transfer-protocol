@@ -1,0 +1,7 @@
+services:
+  server:
+    volumes:
+      - type: bind
+        source: ./src
+        target: /var/www/html
+        read_only: true

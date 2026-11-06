@@ -1,0 +1,10 @@
+extends: _defaults.yaml
+
+apiUsername: test
+apiPassword: test
+apiEndPoint: http://127.0.0.1:8000/ptp-server.php
+
+port: 8023
+passiveUrl: 127.0.0.1
+
+printCommands: true

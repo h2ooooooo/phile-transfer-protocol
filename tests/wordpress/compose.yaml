@@ -1,0 +1,56 @@
+services:
+  database:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: ptp_test
+      MARIADB_USER: ptp_test
+      MARIADB_PASSWORD: disposable-test-password
+      MARIADB_ROOT_PASSWORD: disposable-root-password
+    volumes:
+      - database:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 2s
+      timeout: 5s
+      retries: 60
+  wordpress:
+    image: wordpress:php${PTP_TEST_PHP_VERSION:-8.2}-apache
+    ports:
+      - '127.0.0.1:${PTP_WORDPRESS_PORT:-18080}:80'
+    environment: &wordpress-environment
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_USER: ptp_test
+      WORDPRESS_DB_PASSWORD: disposable-test-password
+      WORDPRESS_DB_NAME: ptp_test
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', 'local');
+        define('WP_MEMORY_LIMIT', '64M');
+        define('WP_MAX_MEMORY_LIMIT', '64M');
+        // Simulate TLS termination only in this disposable, loopback-only fixture.
+        $$_SERVER['HTTPS'] = 'on';
+    volumes:
+      - wordpress:/var/www/html
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD', 'php', '-r', 'exit(@fsockopen("127.0.0.1", 80) ? 0 : 1);']
+      interval: 2s
+      timeout: 5s
+      retries: 60
+  cli:
+    image: wordpress:cli-php${PTP_TEST_PHP_VERSION:-8.2}
+    user: '33:33'
+    profiles: ['tools']
+    environment: *wordpress-environment
+    entrypoint: ['wp']
+    volumes:
+      - wordpress:/var/www/html
+      - ../../ptp-wordpress/dist:/artifacts:ro
+      - .:/fixtures:ro
+    depends_on:
+      wordpress:
+        condition: service_healthy
+volumes:
+  database:
+  wordpress:

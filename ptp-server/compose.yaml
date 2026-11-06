@@ -1,0 +1,27 @@
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - '127.0.0.1:${PTP_PORT:-8000}:80'
+    environment:
+      PTP_ENV_FILE: ''
+      PTP_USERNAME: ${PTP_USERNAME:?Set PTP_USERNAME in .env.docker}
+      PTP_PASSWORD: ${PTP_PASSWORD:?Set PTP_PASSWORD in .env.docker}
+      PTP_ROOT_PATH: /srv/ptp
+      PTP_LOG_HEADERS: 'false'
+      PTP_LOG_BODY: 'false'
+      PTP_LOG_OUTPUT_CONSOLE: 'false'
+    volumes:
+      - type: bind
+        source: ${PTP_DATA_PATH:?Set PTP_DATA_PATH to an existing directory}
+        target: /srv/ptp
+        bind:
+          create_host_path: false
+    healthcheck:
+      test: ['CMD', 'php', '-r', 'exit(@file_get_contents("http://127.0.0.1/ptp-server.php?action=hello") === "hi" ? 0 : 1);']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped

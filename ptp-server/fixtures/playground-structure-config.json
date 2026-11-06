@@ -1,0 +1,188 @@
+{
+  "rootPath": "playground",
+  "randomStructure": [
+    {
+      "name": "music_albums",
+      "directories": [
+        {
+          "name": "album_1",
+          "files": [
+            "track_01.mp3",
+            "track_02.mp3",
+            "track_02_v2.mp3",
+            "cover.jpg",
+            "cover_alt.png",
+            "notes.txt"
+          ],
+          "directories": [
+            {
+              "name": "lyrics",
+              "files": [
+                "track_01.txt",
+                "track_02.txt"
+              ]
+            },
+            {
+              "name": "artwork",
+              "files": [
+                "poster.jpg",
+                "thumbnail.png"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "album_live",
+          "files": [
+            "live_01.mp3",
+            "live_02.mp3",
+            "setlist.txt"
+          ],
+          "directories": []
+        },
+        {
+          "name": "album_drafts",
+          "files": [],
+          "directories": [
+            {
+              "name": "ideas",
+              "files": [
+                "idea_1.mp3",
+                "idea_2.mp3"
+              ]
+            }
+          ]
+        }
+      ],
+      "files": [
+        "readme.txt"
+      ]
+    },
+    {
+      "name": "documents",
+      "directories": [
+        {
+          "name": "reports_2025",
+          "files": [
+            "report_q1.txt",
+            "report_q2.txt",
+            "summary_2025.txt"
+          ],
+          "directories": [
+            {
+              "name": "data_exports",
+              "files": [
+                "sales_jan.csv",
+                "sales_feb.csv",
+                "sales_march.csv"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "letters",
+          "files": [
+            "invitation_draft.txt",
+            "invitation_final.txt",
+            "thank_you.txt"
+          ],
+          "directories": []
+        },
+        {
+          "name": "archive_old",
+          "files": [],
+          "directories": [
+            {
+              "name": "2019",
+              "files": [
+                "old_report.txt"
+              ]
+            },
+            {
+              "name": "2020",
+              "files": []
+            }
+          ]
+        }
+      ],
+      "files": [
+        "index.txt",
+        "README.txt"
+      ]
+    },
+    {
+      "name": "images",
+      "directories": [
+        {
+          "name": "vacation_2024",
+          "files": [
+            "img_001.jpg",
+            "img_002.jpg",
+            "img_002_edit.jpg",
+            "thumb.png"
+          ]
+        },
+        {
+          "name": "screenshots",
+          "files": [
+            "screen_01.png",
+            "screen_02.png"
+          ]
+        }
+      ],
+      "files": [
+        "cover.jpg"
+      ]
+    },
+    {
+      "name": "data_pipeline",
+      "directories": [
+        {
+          "name": "input",
+          "files": [
+            "raw_01.csv",
+            "raw_02.csv"
+          ]
+        },
+        {
+          "name": "processed",
+          "files": [
+            "clean_01.csv",
+            "clean_02.csv",
+            "clean_final.csv"
+          ]
+        },
+        {
+          "name": "logs",
+          "files": [
+            "run_2026_01_01.txt",
+            "run_2026_01_02.txt"
+          ]
+        }
+      ],
+      "files": [
+        "pipeline_notes.txt"
+      ]
+    },
+    {
+      "name": "misc",
+      "directories": [
+        {
+          "name": "temp",
+          "files": []
+        },
+        {
+          "name": "backup_v1",
+          "files": [
+            "backup_001.csv",
+            "backup_002.csv"
+          ]
+        }
+      ],
+      "files": [
+        ".hidden.txt",
+        "todo.txt"
+      ]
+    }
+  ]
+}

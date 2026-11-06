@@ -1,0 +1,58 @@
+{
+  "name": "phile-transfer-protocol",
+  "version": "1.0.0",
+  "description": "PTP connects a local FTP client to a PHP file API over HTTPS. The Node bridge runs on your own machine; the website only needs the PHP endpoint. There is no FTP daemon to install on the hosting account.",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs --host 127.0.0.1",
+    "docs:build": "npm run release:build && vitepress build docs",
+    "docs:preview": "vitepress preview docs --host 127.0.0.1",
+    "lint": "npm run lint:js && npm run lint:php",
+    "lint:js": "eslint .",
+    "lint:php": "node scripts/php.cjs ptp-server/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",
+    "lint:fix": "eslint . --fix && node scripts/php.cjs ptp-server/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php",
+    "test": "npm run test:php-runtime && node scripts/test.cjs && node scripts/test-encrypted-transport.cjs && npm run test:wordpress",
+    "test:wordpress": "node --test ptp-wordpress/folder-access.test.cjs && node scripts/php.cjs ptp-wordpress/test.php",
+    "build": "npm --prefix ptp-client run build && npm run build:wordpress:styles && node scripts/php.cjs ptp-wordpress/build.php",
+    "build:wordpress:styles": "sass ptp-wordpress/assets/folder-access.scss ptp-wordpress/assets/folder-access.css --no-source-map",
+    "dev": "npm --prefix ptp-client run dev --",
+    "dev:server": "node scripts/php.cjs --cwd ptp-server -- bin/cross-env.php PTP_ROOT_PATH=playground PTP_USERNAME=test PTP_PASSWORD=test @php -S 127.0.0.1:8000 -t src",
+    "docker:build": "docker compose --env-file ptp-server/.env.docker -f ptp-server/compose.yaml build",
+    "docker:up": "docker compose --env-file ptp-server/.env.docker -f ptp-server/compose.yaml up -d --build --wait",
+    "docker:dev": "docker compose --env-file ptp-server/.env.docker -f ptp-server/compose.yaml -f ptp-server/compose.dev.yaml up -d --build --wait",
+    "docker:logs": "docker compose --env-file ptp-server/.env.docker -f ptp-server/compose.yaml logs -f",
+    "docker:down": "docker compose --env-file ptp-server/.env.docker -f ptp-server/compose.yaml down",
+    "test:wordpress:http": "node scripts/php.cjs ptp-wordpress/build.php && node scripts/test-wordpress-http.cjs",
+    "docker:wordpress:up": "node scripts/php.cjs ptp-wordpress/build.php && docker compose -f tests/wordpress/compose.yaml up -d --wait wordpress",
+    "docker:wordpress:logs": "docker compose -f tests/wordpress/compose.yaml logs -f",
+    "docker:wordpress:down": "docker compose -f tests/wordpress/compose.yaml down --volumes",
+    "release:build": "node scripts/build-release.cjs",
+    "release:check": "node scripts/check-release.cjs",
+    "docs:check": "node scripts/check-docs.cjs",
+    "ui:dev": "npm --prefix ptp-client-ui run dev",
+    "ui:build": "npm --prefix ptp-client-ui run build",
+    "ui:start": "npm --prefix ptp-client-ui start",
+    "test:encrypted": "npm --prefix ptp-client run build && node scripts/test-encrypted-transport.cjs",
+    "test:php-runtime": "node --test scripts/php-runtime.test.cjs"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "overrides": {
+    "vitepress": {
+      "vite": "^7.3.7",
+      "@vitejs/plugin-vue": "^6.0.10"
+    },
+    "minimatch": "^11.0.5"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.72.1",
+    "@typescript-eslint/parser": "^8.72.1",
+    "eslint": "^10.14.0",
+    "sass": "^1.108.0",
+    "vitepress": "^1.6.4"
+  }
+}

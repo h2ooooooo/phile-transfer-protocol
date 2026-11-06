@@ -1,0 +1,10 @@
+{
+  "path": "/",
+  "entries": [
+    {
+      "name": "notes.txt",
+      "isDirectory": false,
+      "size": 4
+    }
+  ]
+}

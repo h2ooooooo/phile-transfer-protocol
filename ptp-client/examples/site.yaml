@@ -1,0 +1,7 @@
+host: 127.0.0.1
+port: 8021
+passiveUrl: 127.0.0.1
+apiEndPoint: 'https://example.com/ptp-server.php'
+apiUsername: 'operator'
+apiPassword: 'REPLACE_WITH_A_PRIVATE_PASSWORD'
+printCommands: false

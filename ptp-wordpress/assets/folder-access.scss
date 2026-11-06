@@ -1,0 +1,177 @@
+.ptp-folder-access {
+    max-width: 960px;
+    margin-top: 32px;
+
+    > p,
+    .description {
+        max-width: 75ch;
+    }
+
+    .ptp-root-fields {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 24px;
+
+        > label {
+            font-weight: 600;
+        }
+
+        select {
+            justify-self: start;
+        }
+    }
+
+    .ptp-root-input {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        input {
+            flex: 1 1 320px;
+            min-width: 0;
+        }
+    }
+
+    .ptp-presets {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 0;
+        border: 0;
+
+        legend {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+    }
+
+    .ptp-folder-tree {
+        max-height: 560px;
+        overflow: auto;
+        border: 1px solid #c3c4c7;
+        padding: 12px;
+        background: #fff;
+        list-style: none;
+
+        ul {
+            margin-left: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul[hidden] {
+            display: none;
+        }
+
+        li {
+            margin: 0;
+        }
+    }
+
+    .ptp-folder-row {
+        display: grid;
+        grid-template-columns: 16px 20px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 8px;
+        min-height: 34px;
+        padding: 2px 4px;
+        border-radius: 3px;
+
+        &:hover {
+            background: #f6f7f7;
+        }
+
+        input[type='checkbox'] {
+            margin: 0;
+        }
+    }
+
+    .ptp-expand {
+        display: grid;
+        place-items: center;
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        border: 1px solid #8c8f94;
+        border-radius: 2px;
+        background: #fff;
+        color: #1d2327;
+        font-size: 16px;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .ptp-entry-name {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        padding: 4px 0;
+        border: 0;
+        background: transparent;
+        color: #1d2327;
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+
+        span {
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .ptp-entry-icon {
+        flex: 0 0 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .ptp-expand:focus-visible,
+    .ptp-entry-name:focus-visible {
+        outline: 2px solid #2271b1;
+        outline-offset: 2px;
+    }
+
+    .ptp-expand:disabled,
+    .ptp-entry-name:disabled {
+        opacity: 0.6;
+        cursor: wait;
+    }
+
+    .ptp-folder-state,
+    .ptp-tree-message {
+        color: #50575e;
+    }
+
+    .ptp-folder-state {
+        font-size: 12px;
+        text-align: right;
+    }
+
+    .ptp-tree-message {
+        padding: 8px;
+    }
+
+    .ptp-folder-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .ptp-folder-access {
+        .ptp-folder-tree {
+            padding: 8px;
+
+            ul {
+                margin-left: 12px;
+            }
+        }
+
+        .ptp-folder-state {
+            grid-column: 3 / -1;
+            text-align: left;
+        }
+    }
+}

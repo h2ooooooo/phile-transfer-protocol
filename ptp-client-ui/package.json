@@ -1,0 +1,42 @@
+{
+  "name": "@jalsoedesign/ptp-client-ui",
+  "version": "0.3.0",
+  "private": true,
+  "description": "PTP desktop connection manager",
+  "main": "dist/main/index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "predev": "node scripts/client.cjs",
+    "dev": "electron-vite dev",
+    "prebuild": "node scripts/client.cjs",
+    "build": "npm run check && electron-vite build",
+    "check": "vue-tsc --noEmit -p tsconfig.json",
+    "start": "electron .",
+    "test": "tsx --test tests/*.test.ts",
+    "preview:web": "vite --config vite.preview.config.ts --host 127.0.0.1 --port 5184 --strictPort --mode preview",
+    "test:desktop": "electron dist/main/smoke.js",
+    "format": "prettier --write src/renderer/**/*.vue src/renderer/**/*.scss"
+  },
+  "dependencies": {
+    "@jalsoedesign/phile-transfer-protocol-client": "file:../ptp-client",
+    "@lucide/vue": "^1.70.0",
+    "vue": "^3.5.45",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "basic-ftp": "^6.2.6",
+    "electron": "^45.2.3",
+    "electron-vite": "^6.0.0",
+    "prettier": "^3.9.10",
+    "sass": "^1.108.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.6",
+    "vue-tsc": "^3.3.14"
+  }
+}
