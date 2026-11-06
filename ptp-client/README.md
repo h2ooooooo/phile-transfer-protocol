@@ -6,15 +6,15 @@ The PTP client is a local FTP bridge for standalone PHP and WordPress endpoints.
 
 ## npm installation
 
-After publication:
+Download the npm tarball from the [PTP downloads page](https://h2ooooooo.github.io/phile-transfer-protocol/downloads.html), then run in the download directory:
 
 ```sh
-npm install --global @jalsoedesign/phile-transfer-protocol-client
+npm install --global ./ptp-client-0.3.0.tgz
 ptp --help
 ptp ./site.yaml
 ```
 
-Before publication, install the prepared `.tgz` by filename instead. The complete [installation guide](https://h2ooooooo.github.io/phile-transfer-protocol/guide/client-install.html) also covers compiled ZIPs. The ZIP bundles runtime dependencies: extract and run `npm start -- /absolute/path/to/site.yaml`, with no build required.
+The complete [installation guide](https://h2ooooooo.github.io/phile-transfer-protocol/guide/client-install.html) also covers compiled ZIPs. The ZIP bundles runtime dependencies: extract and run `npm start -- /absolute/path/to/site.yaml`, with no build required.
 
 ## Configuration
 

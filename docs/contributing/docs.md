@@ -46,7 +46,7 @@ To enable deployment:
 5. Optionally restrict the `github-pages` environment to `main` in **Settings > Environments**.
 6. In the repository's **About** section, edit **Website** to the Pages URL so visitors can open the documentation from the repository header.
 
-The workflow installs locked Node dependencies, sets up PHP 8.2, builds the release archives and VitePress site, runs the docs checks, and uploads only `docs/.vitepress/dist`. The deployment job runs after the build succeeds. The source tree stays on `main`; compiled files do not need a `gh-pages` branch. Publishing npm or Packagist packages is a separate operation.
+The workflow installs locked Node dependencies, sets up PHP 8.2, builds the release archives and VitePress site, runs the docs checks, and uploads only `docs/.vitepress/dist`. The deployment job runs after the build succeeds. The source tree stays on `main`; compiled files do not need a `gh-pages` branch.
 
 See [GitHub's publishing-source setup](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) and [custom Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 

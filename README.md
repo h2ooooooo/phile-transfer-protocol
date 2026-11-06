@@ -11,7 +11,7 @@ PTP connects an FTP editor on the client host to a remote PHP filesystem over HT
 
 PTP is pronounced “Phile Transfer Protocol”, with “Phile” combining PHP and file.
 
-PTP 0.3.0 uses encrypted JSON POST requests by default to keep filenames and operations out of request URLs and plaintext request inspection. Update the remote endpoint before the client; existing credentials and YAML remain usable. [Encrypted requests and upgrade steps](https://h2ooooooo.github.io/phile-transfer-protocol/advanced/encrypted-requests.html).
+PTP uses encrypted JSON POST requests by default to keep filenames and operations out of request URLs and plaintext request inspection. Update the remote endpoint before the client; existing credentials and YAML remain usable. [Encrypted requests and upgrade steps](https://h2ooooooo.github.io/phile-transfer-protocol/advanced/encrypted-requests.html).
 
 ## Choose a workflow
 
@@ -23,7 +23,7 @@ PTP 0.3.0 uses encrypted JSON POST requests by default to keep filenames and ope
 | WordPress endpoint | Installable plugin ZIP | [WordPress quick start](https://h2ooooooo.github.io/phile-transfer-protocol/guide/wordpress.html) |
 | Integrations | HTTP API | [API documentation](https://h2ooooooo.github.io/phile-transfer-protocol/api/) |
 
-GitHub Pages hosts the documentation and downloadable archives at [h2ooooooo.github.io/phile-transfer-protocol](https://h2ooooooo.github.io/phile-transfer-protocol/). GitHub keeps the source repository, README, code blocks, and CI status badge. Documentation source is also browsable under [docs/](docs/index.md). npm and Packagist packages have not been published; registry installation commands describe the intended published workflow.
+GitHub Pages hosts the documentation and downloadable archives at [h2ooooooo.github.io/phile-transfer-protocol](https://h2ooooooo.github.io/phile-transfer-protocol/). Documentation source is also browsable under [docs/](docs/index.md).
 
 ## Source setup
 
@@ -56,6 +56,6 @@ npm run docs:dev
 
 Artifacts are generated under `releases/0.3.0` and mirrored into the local docs downloads. The separate `ptp-client-ui` Electron app uses the manifest for verified server/plugin downloads and runs the existing client underneath. It supports multiple concurrent bridges, encrypted profiles, YAML import, and live logs. No installer or automatic updater is implemented. VitePress dev/production preview retain their existing ports, 5173/4173.
 
-`npm test` runs disposable integration tests; `npm run test:wordpress` checks the plugin adapter. The optional Docker-backed WordPress HTTP tests are documented in [development](docs/contributing/development.md). Local build commands prepare files; the GitHub Pages workflow publishes the built site. Package registry publication is separate.
+`npm test` runs disposable integration tests; `npm run test:wordpress` checks the plugin adapter. The optional Docker-backed WordPress HTTP tests are documented in [development](docs/contributing/development.md). Local build commands prepare files; the GitHub Pages workflow publishes the built site.
 
 Use PTP only for authorized maintenance. Keep credentials private, select a narrow remote root, and retain recovery access when editing executable PHP. [Acceptable-use terms](docs/acceptable-use.md). License: [MIT](LICENSE).

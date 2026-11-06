@@ -6,9 +6,10 @@ Version 0.3.0 accepts encrypted JSON POST requests and retains the legacy API. U
 
 ## Install with Composer
 
-The repository-root Composer manifest prepares `jalsoedesign/phile-transfer-protocol-server` for Packagist. After publication, install it as an application dependency:
+Download the [server ZIP](https://h2ooooooo.github.io/phile-transfer-protocol/downloads.html) into your application project's `packages/` directory without extracting it. Register the artifact directory and install PTP:
 
 ```sh
+composer config repositories.ptp artifact ./packages
 composer require jalsoedesign/phile-transfer-protocol-server:^0.3
 ```
 

@@ -6,7 +6,7 @@ WordPress adapter for the existing PTP client. Requires WordPress 5.6+, PHP 8.2+
 
 ## Install and connect
 
-1. Download the WordPress ZIP from the [PTP downloads page](https://h2ooooooo.github.io/phile-transfer-protocol/downloads.html). Release files are prepared locally; this public download becomes available after publication.
+1. Download the WordPress ZIP from the [PTP downloads page](https://h2ooooooo.github.io/phile-transfer-protocol/downloads.html).
 2. Upload `ptp-wordpress-0.3.0.zip` through Plugins → Add New → Upload Plugin, then activate it.
 3. Open Tools → PTP, enable access, save, and click **Download YAML**. The file includes your site's endpoint and your WordPress login username.
 4. Open Users → Profile → Application Passwords, enter a task name, and click Add New Application Password. Copy the displayed password into `apiPassword` and your WordPress login username into `apiUsername`. See [WordPress's step-by-step instructions](https://developer.wordpress.org/advanced-administration/security/application-passwords/#creating-an-application-password-in-wp-admin).

@@ -8,21 +8,19 @@ Install Node.js 22.13+ on the client host. The [Node.js installer](https://nodej
 
 ## Option 1: npm package
 
-After publication, install the executable:
+Download the [npm tarball](../downloads), open a terminal in its directory, and install the executable:
 
 ```sh
-npm install --global @jalsoedesign/phile-transfer-protocol-client
+npm install --global ./ptp-client-0.3.0.tgz
 ptp --version
 ptp --help
 ```
 
-Expected version output for this prepared release:
+Expected version output:
 
 ```text
 0.3.0
 ```
-
-Before publication, download the [prepared tarball](../downloads) and install the downloaded file with `npm install --global ./ptp-client-0.3.0.tgz`. That tests the same package without contacting the registry for PTP.
 
 Create a private `site.yaml` using the WordPress download or [complete configuration](../reference/client#complete-example). Then run:
 

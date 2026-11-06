@@ -4,13 +4,14 @@ Use this route when the remote PHP application is managed with Composer. PTP is 
 
 ## Install the package
 
-After Packagist publication, run in the application project root:
+Download the [server ZIP](../downloads) into a `packages/` directory in your application project, keeping the ZIP intact. Composer needs the PHP zip extension to read artifact archives. From the application project root, register that directory and install PTP:
 
 ```sh
+composer config repositories.ptp artifact ./packages
 composer require jalsoedesign/phile-transfer-protocol-server:^0.3
 ```
 
-Keep `composer.lock` with the application deployment configuration. `^0.3` allows compatible `0.3.x` versions; it does not select `0.4`. Before publication, the [server ZIP](../downloads) also contains Composer artifact metadata. Contributors can test a path repository without registry publication; see [release preparation](../contributing/releases).
+Keep `composer.lock` with the application deployment configuration. `^0.3` allows compatible `0.3.x` versions; it does not select `0.4`. Keep the ZIP in the artifact directory so the locked dependency can be installed again.
 
 ## Configure the endpoint
 
@@ -44,8 +45,9 @@ Serve the entry point over HTTPS, check `?action=hello` returns `hi`, then follo
 
 ## Updates
 
+Download the selected server ZIP into `packages/`, then run:
+
 ```sh
-composer outdated jalsoedesign/phile-transfer-protocol-server
 composer update jalsoedesign/phile-transfer-protocol-server --with-dependencies
 ```
 

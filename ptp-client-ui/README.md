@@ -26,7 +26,7 @@ npm run build
 npm start
 ```
 
-Run `npm run build` after updating source files. This iteration runs from the repository and does not produce an installer or a published UI package.
+Run `npm run build` after updating source files.
 
 ## Connections
 
@@ -50,9 +50,9 @@ From the repository root, prepare artifacts once:
 npm run release:build
 ```
 
-Restart the UI. **Downloads** offers the prepared server and WordPress ZIPs, install steps, and SHA-256 details. Choose the destination in the native Save dialog. Files are size-checked and checksum-checked before replacing the destination. No remote installation happens automatically.
+Restart the UI. **Downloads** offers the server and WordPress ZIPs, install steps, and SHA-256 details. Choose the destination in the native Save dialog. Files are size-checked and checksum-checked before replacing the destination. No remote installation happens automatically.
 
-**Check for releases** reads `https://h2ooooooo.github.io/phile-transfer-protocol/releases/latest.json`. Remote artifacts must be published, match the expected filenames, and stay on that HTTPS origin. Until hosting is published, prepared local artifacts remain available after a failed check. The renderer never loads remote content or executes downloaded files.
+**Check for releases** reads `https://h2ooooooo.github.io/phile-transfer-protocol/releases/latest.json`. Download URLs must match the expected filenames and stay on that HTTPS origin. Archives built from source remain available after a failed check. The renderer never loads remote content or executes downloaded files.
 
 ## Local storage
 

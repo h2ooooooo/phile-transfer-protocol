@@ -93,7 +93,7 @@ export default defineConfig({
             {text: 'Acceptable use', link: '/acceptable-use'},
             {text: 'Contributing', items: [
                 {text: 'Source development', link: '/contributing/development'},
-                {text: 'Release preparation', link: '/contributing/releases'},
+                {text: 'Build archives', link: '/contributing/releases'},
                 {text: 'Work on docs', link: '/contributing/docs'},
             ]},
         ],
@@ -107,7 +107,7 @@ export default defineConfig({
             '/reference/server': serverSidebar,
             '/contributing/': [{text: 'Contributing', items: [
                 {text: 'Source development', link: '/contributing/development'},
-                {text: 'Prepare releases', link: '/contributing/releases'},
+                {text: 'Build archives', link: '/contributing/releases'},
                 {text: 'Work on docs', link: '/contributing/docs'},
             ]}],
             '/': guideSidebar,
