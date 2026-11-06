@@ -38,7 +38,7 @@ Each bridge has its own process, local port, status, and log. Stopping one leave
 
 Before the public release service is published, run `npm run release:build` from the repository root and restart the app. **Downloads** then offers the prepared WordPress and standalone server ZIPs, with installation steps. Choose a destination in the Save dialog. Size and SHA-256 are verified before saving the finished ZIP.
 
-**Check for releases** reads the planned HTTPS release service at `phile-transfer-protocol.jalsoedesign.net`. If it is unavailable, existing local downloads remain available. Downloads do not upload or install files remotely. Follow the [WordPress installation](./wordpress) or [standalone PHP upload guide](./quick-start).
+**Check for releases** reads the [GitHub Pages release manifest](/releases/latest.json). Remote refresh accepts only a manifest marked as published; until then, prepared local downloads remain available. Downloads do not upload or install files remotely. Follow the [WordPress installation](./wordpress) or [standalone PHP upload guide](./quick-start).
 
 ## Passwords and logs
 

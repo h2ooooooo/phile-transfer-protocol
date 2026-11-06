@@ -3,73 +3,16 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {spawnSync} = require('node:child_process');
 const {root, run, fixture, cleanup, isolatedEnvironment, startPhp, stop} = require('./test-support.cjs');
+const {checkRenderedLinks, checkReadmeLinks} = require('./docs-links.cjs');
 
 function htmlLinks() {
     const built = path.join(root, 'docs/.vitepress/dist');
 
-    if (!fs.existsSync(built)) {
-        throw new Error('Build the docs before checking rendered links.');
-    }
+    assert.ok(fs.existsSync(path.join(root, 'docs/acceptable-use.md')), 'The acceptable-use source page is missing.');
+    assert.ok(fs.existsSync(path.join(built, 'acceptable-use.html')), 'The acceptable-use page must be present in the built docs.');
+    checkReadmeLinks(root);
 
-    const pages = [];
-    const walk = directory => {
-        for (const entry of fs.readdirSync(directory, {withFileTypes: true})) {
-            const target = path.join(directory, entry.name);
-
-            if (entry.isDirectory()) {
-                walk(target);
-            } else if (entry.name.endsWith('.html')) {
-                pages.push(target);
-            }
-        }
-    };
-
-    walk(built);
-    let checks = 0;
-    const failures = [];
-
-    for (const page of pages) {
-        const html = fs.readFileSync(page, 'utf8');
-        const pageUrl = 'https://docs.local/' + path.relative(built, page).replace(/\\/g, '/');
-
-        for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
-            const href = match[1].replace(/&amp;/g, '&');
-
-            if (/^(https?:|mailto:|data:|javascript:|\/\/)/.test(href)) {
-                continue;
-            }
-
-            const url = new URL(href, pageUrl);
-            let target = path.join(built, decodeURIComponent(url.pathname));
-
-            if (fs.existsSync(target) && fs.statSync(target).isDirectory()) {
-                target = path.join(target, 'index.html');
-            } else if (!path.extname(target) && !fs.existsSync(target)) {
-                target += '.html';
-            }
-
-            if (!fs.existsSync(target)) {
-                failures.push(path.relative(built, page) + ' links to missing ' + href);
-
-                continue;
-            }
-
-            checks++;
-
-            if (url.hash && target.endsWith('.html')) {
-                const id = decodeURIComponent(url.hash.slice(1));
-                const targetHtml = fs.readFileSync(target, 'utf8');
-
-                if (!targetHtml.includes('id="' + id + '"')) {
-                    failures.push(path.relative(built, page) + ' links to missing anchor ' + href);
-                }
-            }
-        }
-    }
-
-    assert.deepEqual(failures, [], failures.join('\n'));
-
-    return checks;
+    return checkRenderedLinks({built, base: process.env.DOCS_BASE || '/'});
 }
 
 async function main() {

@@ -52,7 +52,7 @@ npm run release:build
 
 Restart the UI. **Downloads** offers the prepared server and WordPress ZIPs, install steps, and SHA-256 details. Choose the destination in the native Save dialog. Files are size-checked and checksum-checked before replacing the destination. No remote installation happens automatically.
 
-**Check for releases** reads `https://phile-transfer-protocol.jalsoedesign.net/releases/latest.json`. Remote artifacts must be published, match the expected filenames, and stay on that HTTPS origin. Until hosting is published, prepared local artifacts remain available after a failed check. The renderer never loads remote content or executes downloaded files.
+**Check for releases** reads `https://h2ooooooo.github.io/phile-transfer-protocol/releases/latest.json`. Remote artifacts must be published, match the expected filenames, and stay on that HTTPS origin. Until hosting is published, prepared local artifacts remain available after a failed check. The renderer never loads remote content or executes downloaded files.
 
 ## Local storage
 

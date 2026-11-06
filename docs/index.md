@@ -14,6 +14,9 @@ hero:
     - theme: alt
       text: Downloads
       link: /downloads
+    - theme: alt
+      text: Source on GitHub
+      link: https://github.com/h2ooooooo/phile-transfer-protocol
 ---
 
 ## Choose your route
@@ -32,6 +35,6 @@ Browse directories, download files, upload verified replacements, create folders
 
 Your editor connects to `127.0.0.1:8021` on the **client host**. The selected files live on the **remote PHP host**. No remote FTP service is required. [See the architecture](./guide/how-it-works).
 
-Use PTP only with permission to install it and perform the intended operations. Changes to executable PHP take effect on the remote website; keep a recovery route available.
+Read the [acceptable-use terms](./acceptable-use) before installing PTP. Use PTP only with permission to install it and perform the intended operations. Changes to executable PHP take effect on the remote website; keep a recovery route available.
 
 PTP is pronounced “Phile Transfer Protocol”, with “Phile” combining PHP and file.

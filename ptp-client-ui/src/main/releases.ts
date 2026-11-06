@@ -4,7 +4,7 @@ import {open, readFile, rename, unlink} from 'node:fs/promises';
 import {join, dirname} from 'node:path';
 import type {Artifact, Release} from '../shared/types';
 
-export const releaseOrigin = 'https://phile-transfer-protocol.jalsoedesign.net';
+export const releaseOrigin = 'https://h2ooooooo.github.io/phile-transfer-protocol';
 const maximumArtifactSize = 64 * 1024 * 1024;
 
 export function parseRelease(input: unknown, source: Release['source']): Release {

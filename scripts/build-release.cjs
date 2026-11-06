@@ -3,9 +3,11 @@ const path = require('node:path');
 const {spawnSync} = require('node:child_process');
 const {createHash} = require('node:crypto');
 const {phpBinary} = require('./php-runtime.cjs');
+const {resolveReleaseBaseUrl} = require('./release-urls.cjs');
 
 const root = path.resolve(__dirname, '..');
 const release = require('../release.json');
+const baseUrl = resolveReleaseBaseUrl(release.baseUrl, process.env.DOCS_URL);
 const client = require('../ptp-client/package.json');
 const output = path.join(root, 'releases', release.version);
 const npm = process.env.npm_execpath || path.join(path.dirname(process.execPath), 'node_modules/npm/bin/npm-cli.js');
@@ -130,12 +132,12 @@ try {
         schemaVersion: 1,
         version: release.version,
         published: release.published,
-        baseUrl: release.baseUrl,
+        baseUrl,
         requirements: {node: '>=22.13.0', php: '>=8.2', phpExtensions: ['json', 'openssl'], wordpress: '>=5.6'},
         artifacts: [tarball, clientZip, serverZip, wordpressZip].map(file => ({
             name: path.basename(file),
             path: '/releases/' + release.version + '/' + path.basename(file),
-            url: release.baseUrl + '/releases/' + release.version + '/' + path.basename(file),
+            url: baseUrl + '/releases/' + release.version + '/' + path.basename(file),
             bytes: fs.statSync(file).size,
             sha256: createHash('sha256').update(fs.readFileSync(file)).digest('hex'),
         })),

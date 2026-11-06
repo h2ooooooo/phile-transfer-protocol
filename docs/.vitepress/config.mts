@@ -1,5 +1,8 @@
 import {defineConfig} from 'vitepress';
 
+const docsBase = process.env.DOCS_BASE || '/';
+const sourceUrl = 'https://github.com/h2ooooooo/phile-transfer-protocol';
+
 const guideSidebar = [
     {text: 'Getting started', items: [
         {text: 'How PTP works', link: '/guide/how-it-works'},
@@ -71,9 +74,9 @@ export default defineConfig({
     title: 'PTP',
     description: 'A local FTP bridge for standalone PHP hosting and WordPress. Install, configure, connect.',
     lang: 'en',
-    base: process.env.DOCS_BASE || '/',
+    base: docsBase,
     cleanUrls: false,
-    head: [['link', {rel: 'icon', href: `${process.env.DOCS_BASE || '/'}mark.svg`}]],
+    head: [['link', {rel: 'icon', href: `${docsBase}mark.svg`}]],
     markdown: {
         theme: {light: 'github-light', dark: 'github-dark'},
         languageAlias: {mjs: 'javascript', cjs: 'javascript'},
@@ -87,6 +90,7 @@ export default defineConfig({
             {text: 'API documentation', link: '/api/'},
             {text: 'PHP server', link: '/server/'},
             {text: 'Downloads', link: '/downloads'},
+            {text: 'Acceptable use', link: '/acceptable-use'},
             {text: 'Contributing', items: [
                 {text: 'Source development', link: '/contributing/development'},
                 {text: 'Release preparation', link: '/contributing/releases'},
@@ -108,8 +112,9 @@ export default defineConfig({
             ]}],
             '/': guideSidebar,
         },
+        socialLinks: [{icon: 'github', link: sourceUrl}],
         search: {provider: 'local'},
         outline: {level: [2, 3]},
-        footer: {message: 'PTP. Authorized maintenance only.'},
+        footer: {message: 'PTP. Authorized maintenance only. <a href="' + docsBase + 'acceptable-use.html">Acceptable use</a>.'},
     },
 });

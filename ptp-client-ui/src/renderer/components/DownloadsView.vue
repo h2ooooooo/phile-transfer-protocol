@@ -56,7 +56,7 @@ const endpoints = [
                     {{
                         release.source === 'local'
                             ? 'Prepared local release. These downloads work before public hosting is published.'
-                            : 'Published release from phile-transfer-protocol.jalsoedesign.net.'
+                            : 'Published release from the PTP GitHub Pages site.'
                     }}
                 </p>
             </div>

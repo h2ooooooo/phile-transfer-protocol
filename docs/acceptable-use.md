@@ -1,10 +1,11 @@
 # Acceptable-use terms
 
-::: danger NO MALICIOUS OR UNAUTHORIZED USE
-**PTP is absolutely not intended to be used for malicious behavior. Such use is unacceptable and expressly prohibited by these project acceptable-use terms.**
-
-Use PTP only on systems you own or for which you have explicit authorization to install and operate a file-access endpoint and perform the intended file operations. Access to a website, a WordPress account, credentials, or an upload feature is not blanket authorization.
-:::
+> [!CAUTION]
+> **NO MALICIOUS OR UNAUTHORIZED USE**
+>
+> **PTP is absolutely not intended to be used for malicious behavior. Such use is unacceptable and expressly prohibited by these project acceptable-use terms.**
+>
+> Use PTP only on systems you own or for which you have explicit authorization to install and operate a file-access endpoint and perform the intended file operations. Access to a website, a WordPress account, credentials, or an upload feature is not blanket authorization.
 
 ## Prohibited behavior
 

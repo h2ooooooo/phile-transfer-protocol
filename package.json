@@ -14,7 +14,7 @@
     "lint:js": "eslint .",
     "lint:php": "node scripts/php.cjs ptp-server/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",
     "lint:fix": "eslint . --fix && node scripts/php.cjs ptp-server/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php",
-    "test": "npm run test:php-runtime && node scripts/test.cjs && node scripts/test-encrypted-transport.cjs && npm run test:wordpress",
+    "test": "npm run test:docs && npm run test:php-runtime && node scripts/test.cjs && node scripts/test-encrypted-transport.cjs && npm run test:wordpress",
     "test:wordpress": "node --test ptp-wordpress/folder-access.test.cjs && node scripts/php.cjs ptp-wordpress/test.php",
     "build": "npm --prefix ptp-client run build && npm run build:wordpress:styles && node scripts/php.cjs ptp-wordpress/build.php",
     "build:wordpress:styles": "sass ptp-wordpress/assets/folder-access.scss ptp-wordpress/assets/folder-access.css --no-source-map",
@@ -36,7 +36,8 @@
     "ui:build": "npm --prefix ptp-client-ui run build",
     "ui:start": "npm --prefix ptp-client-ui start",
     "test:encrypted": "npm --prefix ptp-client run build && node scripts/test-encrypted-transport.cjs",
-    "test:php-runtime": "node --test scripts/php-runtime.test.cjs"
+    "test:php-runtime": "node --test scripts/php-runtime.test.cjs",
+    "test:docs": "node --test scripts/docs-links.test.cjs scripts/release-urls.test.cjs"
   },
   "keywords": [],
   "type": "commonjs",

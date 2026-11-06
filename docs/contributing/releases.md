@@ -21,6 +21,6 @@ Composer clients use `Server::run($privateConfigurationPath)` from an applicatio
 
 ## Public release contract
 
-The planned origin is `https://phile-transfer-protocol.jalsoedesign.net`. `/releases/latest.json` describes the selected release and links versioned artifacts. `published: false` marks local preparation and drives the documentation notice. The separate `ptp-client-ui` app consumes this manifest for verified downloads. No update installer or live release service is published here.
+The documentation/download base is `https://h2ooooooo.github.io/phile-transfer-protocol`. `/releases/latest.json` describes the selected release and links versioned artifacts. `published: false` marks a prepared release and keeps the desktop remote-release refresh disabled. Documentation deployment can expose the prepared archives without publishing npm or Packagist packages. The separate `ptp-client-ui` app consumes this manifest for verified downloads. No update installer is included. The Pages workflow publishes the static manifest and archives with the documentation.
 
-Before an eventual publication, confirm licensing and package ownership, run checks on a clean host, review archive contents, then separately authorize registry publishing and hosting deployment. Those actions are outside this preparation task.
+The [GitHub Pages workflow](./docs#github-pages) sets `DOCS_URL` to the configured site URL, so manifest downloads retain the project subpath or custom-domain origin. Before publishing registry packages or marking a release published, confirm package ownership, run checks on a clean host, and review archive contents. Registry publishing remains separate from documentation deployment.

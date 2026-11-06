@@ -1,6 +1,6 @@
 # PTP client
 
-Version 0.3.0 defaults to authenticated encrypted JSON POST requests, keeping file paths and upload contents out of plaintext request inspection. Update the WordPress plugin or standalone endpoint first. Existing credentials and YAML work without an extra key. Use `requestTransport: legacy` only when explicitly connecting to an older endpoint. [Upgrade guide](https://phile-transfer-protocol.jalsoedesign.net/advanced/encrypted-requests.html).
+Version 0.3.0 defaults to authenticated encrypted JSON POST requests, keeping file paths and upload contents out of plaintext request inspection. Update the WordPress plugin or standalone endpoint first. Existing credentials and YAML work without an extra key. Use `requestTransport: legacy` only when explicitly connecting to an older endpoint. [Upgrade guide](https://h2ooooooo.github.io/phile-transfer-protocol/advanced/encrypted-requests.html).
 
 The PTP client is a local FTP bridge for standalone PHP and WordPress endpoints. It installs the `ptp` CLI executable; it does not expose a supported JavaScript SDK. Node.js 22.13+ is required on the client host. Remote endpoints use HTTPS; local loopback HTTP is supported for testing.
 
@@ -14,7 +14,7 @@ ptp --help
 ptp ./site.yaml
 ```
 
-Before publication, install the prepared `.tgz` by filename instead. The complete [installation guide](https://phile-transfer-protocol.jalsoedesign.net/guide/client-install.html) also covers compiled ZIPs. The ZIP bundles runtime dependencies: extract and run `npm start -- /absolute/path/to/site.yaml`, with no build required.
+Before publication, install the prepared `.tgz` by filename instead. The complete [installation guide](https://h2ooooooo.github.io/phile-transfer-protocol/guide/client-install.html) also covers compiled ZIPs. The ZIP bundles runtime dependencies: extract and run `npm start -- /absolute/path/to/site.yaml`, with no build required.
 
 ## Configuration
 

@@ -118,6 +118,9 @@ test('release downloads verify size and SHA-256 and leave an existing file intac
         await assert.rejects(service.download('server', destination, () => {}), /checksum/);
         assert.deepEqual(await readFile(destination), data);
         assert.throws(() => parseRelease({...manifest, artifacts: artifacts.map(item => ({...item, url: 'https://untrusted.invalid/file.zip'}))}, 'remote'), /invalid/);
+        const pagesOrigin = new URL(releaseOrigin).origin;
+
+        assert.throws(() => parseRelease({...manifest, artifacts: artifacts.map(item => ({...item, url: pagesOrigin + item.path}))}, 'remote'), /invalid/);
         assert.throws(() => service.artifact('../client'), /No verified download/);
     } finally {
         await rm(directory, {recursive: true, force: true});

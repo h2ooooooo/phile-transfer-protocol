@@ -59,7 +59,7 @@
   "version": "0.3.0",
   "description": "PTP local FTP bridge for standalone PHP endpoints and the WordPress plugin.",
   "license": "MIT",
-  "homepage": "https://phile-transfer-protocol.jalsoedesign.net",
+  "homepage": "https://h2ooooooo.github.io/phile-transfer-protocol",
   "type": "commonjs",
   "engines": {
     "node": ">=22.13.0"

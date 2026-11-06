@@ -1,16 +1,16 @@
 # PTP for WordPress
 
-Version 0.3.0 accepts encrypted JSON POST requests from the updated client and retains the legacy API for older clients. PHP OpenSSL is required for encrypted requests. Upload the new plugin ZIP to replace the installed plugin before updating the client. Keep existing settings, endpoint URL, and Application Password; check Tools → PTP afterward. No separate standalone server installation is needed for WordPress. See the [upgrade guide](https://phile-transfer-protocol.jalsoedesign.net/advanced/encrypted-requests.html).
+Version 0.3.0 accepts encrypted JSON POST requests from the updated client and retains the legacy API for older clients. PHP OpenSSL is required for encrypted requests. Upload the new plugin ZIP to replace the installed plugin before updating the client. Keep existing settings, endpoint URL, and Application Password; check Tools → PTP afterward. No separate standalone server installation is needed for WordPress. See the [upgrade guide](https://h2ooooooo.github.io/phile-transfer-protocol/advanced/encrypted-requests.html).
 
 WordPress adapter for the existing PTP client. Requires WordPress 5.6+, PHP 8.2+, HTTPS, and an administrator allowed to edit themes. Access is disabled by default. Until you save a folder selection, the root follows the active stylesheet (child theme when present) directory. WordPress file-edit/file-modification restrictions are respected.
 
 ## Install and connect
 
-1. Download the WordPress ZIP from the [PTP downloads page](https://phile-transfer-protocol.jalsoedesign.net/downloads.html). Release files are prepared locally; this public download becomes available after publication.
+1. Download the WordPress ZIP from the [PTP downloads page](https://h2ooooooo.github.io/phile-transfer-protocol/downloads.html). Release files are prepared locally; this public download becomes available after publication.
 2. Upload `ptp-wordpress-0.3.0.zip` through Plugins → Add New → Upload Plugin, then activate it.
 3. Open Tools → PTP, enable access, save, and click **Download YAML**. The file includes your site's endpoint and your WordPress login username.
 4. Open Users → Profile → Application Passwords, enter a task name, and click Add New Application Password. Copy the displayed password into `apiPassword` and your WordPress login username into `apiUsername`. See [WordPress's step-by-step instructions](https://developer.wordpress.org/advanced-administration/security/application-passwords/#creating-an-application-password-in-wp-admin).
-5. Replace the downloaded file's `apiPassword` placeholder with that Application Password. With the npm client installed, run `ptp ./ptp-wordpress.yaml` from the directory containing the YAML. With the prebuilt client ZIP, run `node dist/index.js ./ptp-wordpress.yaml` from the extracted client directory. See the [client installation guide](https://phile-transfer-protocol.jalsoedesign.net/guide/client-install.html). The YAML is self-contained and does not require `_defaults.yaml`. Alternatively, configure the PTP client manually:
+5. Replace the downloaded file's `apiPassword` placeholder with that Application Password. With the npm client installed, run `ptp ./ptp-wordpress.yaml` from the directory containing the YAML. With the prebuilt client ZIP, run `node dist/index.js ./ptp-wordpress.yaml` from the extracted client directory. See the [client installation guide](https://h2ooooooo.github.io/phile-transfer-protocol/guide/client-install.html). The YAML is self-contained and does not require `_defaults.yaml`. Alternatively, configure the PTP client manually:
 
 ```yaml
 host: 127.0.0.1

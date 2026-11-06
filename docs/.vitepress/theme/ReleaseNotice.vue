@@ -5,7 +5,7 @@ import release from '../../../release.json';
 <template>
     <aside v-if="!release.published" class="release-notice" aria-label="Release status">
         <strong>Prepared release {{ release.version }}.</strong>
-        Downloads are built locally. npm, Packagist, and the public domain are not published yet.
+        Downloadable archives are included with these docs. npm and Packagist packages are not published yet.
         Registry installation commands describe the release workflow after publication.
     </aside>
 </template>
